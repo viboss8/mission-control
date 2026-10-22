@@ -32,3 +32,5 @@ const legacy=C.empty();C.ensure(legacy,rw).states['2-3']={status:'complete',comp
 assert(C.coachOptions(refined,rd,'early').some(o=>o.kind==='recovery'));assert(C.coachOptions(refined,rd,'unfinished').every(o=>o.kind==='task'||o.kind==='goal'));
 const preserved=JSON.stringify(refined);const loaded=runtime({'mission-control:state:v4':preserved});assert.equal(loaded.run('data.learningLogs[0].progress'),70);assert.equal(loaded.run("data.months['2026-10'].goals[0].milestones.length"),1);assert.equal(loaded.run("data.weeks['2026-10-19'].states['2-3'].status"),'complete');
 console.log('PASS: achievement-only monthly suggestions; exact monthly-to-weekly links; task/goal completion isolation; documented milestones; manual learning validation/editing; old goals, completed slot names and history preservation; coach context and recovery choices.');
+
+const cueData=C.upgrade(C.empty());C.ensure(cueData,'2026-10-19');const cueCheck=C.coachOptions(cueData,'2026-10-22','unfinished');assert.equal(cueCheck[0].cue,'Put on your gym clothes.');console.log('PASS: gym-readiness coaching uses a task-specific physical first step.');
