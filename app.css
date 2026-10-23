@@ -21,3 +21,10 @@
 /* Paired brightness accents, never a full-card flash or blackout. */
 @keyframes siren-burst{0%,24%,50%,74%,100%{opacity:1}12%,36%,62%,86%{opacity:.6}}
 @media(prefers-reduced-motion:reduce){.task.late-glow::before,.task.late-glow::after{animation:none;opacity:1;background:linear-gradient(110deg,#ff6677 0% 49%,#70aaff 51% 100%)}.task.late-glow::after{opacity:.45}}
+
+/* Embedded inner light source: red stays left, blue stays right. */
+@property --inner-red { syntax:'<number>'; inherits:false; initial-value:.18; }
+@property --inner-blue { syntax:'<number>'; inherits:false; initial-value:.18; }
+.task.late-glow{background:radial-gradient(ellipse 43% 115% at 0% 50%,rgb(255 48 74 / var(--inner-red)) 0%,transparent 100%),radial-gradient(ellipse 43% 115% at 100% 50%,rgb(48 132 255 / var(--inner-blue)) 0%,transparent 100%),#17141b;box-shadow:inset 3px 0 11px rgb(255 48 74 / var(--inner-red)),inset -3px 0 11px rgb(48 132 255 / var(--inner-blue)),-6px 0 17px -7px rgb(255 48 74 / var(--inner-red)),6px 0 17px -7px rgb(48 132 255 / var(--inner-blue));animation:inner-light-bloom 1.4s steps(1,end) infinite}
+@keyframes inner-light-bloom{0%,100%{--inner-red:.36;--inner-blue:.09}50%{--inner-red:.09;--inner-blue:.36}}
+@media(prefers-reduced-motion:reduce){.task.late-glow{animation:none;--inner-red:.18;--inner-blue:.18}}
