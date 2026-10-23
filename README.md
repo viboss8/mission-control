@@ -27,7 +27,7 @@ Gym class availability should be confirmed. Actual iPhone hardware testing is se
 
 ## Development and deployment
 
-No dependencies or build step. Serve this folder with a static web server. Run `node test-core.cjs` for domain checks. Publish the root of `main` through GitHub Pages. Keep index.html, app.js, core.js, schedule.js, app.css, sw.js, manifest.webmanifest, and both icons together. Bump the service-worker cache name when changing release assets.
+No dependencies or build step. Serve this folder with a static web server. Run `node test-core.cjs` for domain checks. Publish the root of `main` through GitHub Pages. Keep index.html, app.js, core.js, task-coach.js, schedule.js, app.css, sw.js, manifest.webmanifest, and both icons together. Bump the service-worker cache name when changing release assets.
 
 The uploaded Version 3 prototype was merged with the deployed Version 1 improvements: per-day accents, all existing schedules, local-week rollover/history, accessibility basics, and Home Screen assets.
 
@@ -45,3 +45,10 @@ The storage key and schema version remain compatible with the deployed version. 
 Post-Work Reset replaces launch blocks. Monday is upper-body strength, Wednesday is on-post boxing with a distinct optional 20–30-minute lifting task and no invented class time, and Friday is full-body strength. Mobility remains independently tracked on all three days. Friday social time is open-ended. Execute holds detailed cues. During a reset's last ten minutes, Today offers an optional Coach transition; no push notification is created. Progress separates fitness activity credits from distinct fitness days.
 
 The schedule upgrade snapshots recorded task identities and times and retains removed old workout records in history rather than crediting new workouts automatically. Unrecorded current/future blocks use the revised plan; older weeks retain the legacy schedule. Existing goals, activity logs, storage keys, school replacement controls, and warning CSS remain intact.
+
+## Task-specific Coach and passive windows
+Today cards include Coach Me (with identity, title, time and context) and a collapsible More Details guide. The existing Manage Task status form is retained. The handoff prototype had no real remove-task behavior; the lower-right − Task control collapses the open controls and does not delete records.
+
+Task-scoped Switch, Start, Focus and Overwhelmed modes provide progressive actions. Switch adapts to seven starting situations and offers a return note only for another project. Focus offers actual timestamp-based 10/15/25-minute countdowns that survive reload, with no promised background alert. Starts do not write task completion. TaskCoach is an offline, rule-based module, not an AI integration.
+
+Explicit Post-Work Reset and recovery windows derive Window Ended once their end passes in the configured IANA time zone (default America/Los_Angeles). Derived status never overwrites stored user activity states or grants achievement credit. These windows are excluded from action queues, overdue warnings and planned-accomplishment denominators. Variable-time windows cannot infer an end hour; they expire after their scheduled day. Mixed Reset + Gym Readiness remains actionable, as do workouts, mobility, coursework, business, finance and creative commitments. Time-zone settings are under Progress. Existing historical weeks, goals, activity logs, keys and police-light CSS are preserved.
