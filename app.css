@@ -7,3 +7,5 @@
 .task.focus-glow{position:relative;border-radius:7px;outline:2px solid var(--accent);outline-offset:-2px;box-shadow:inset 0 0 20px color-mix(in srgb,var(--accent) 12%,transparent),0 0 18px color-mix(in srgb,var(--accent) 32%,transparent);background:color-mix(in srgb,var(--accent) 6%,#131315)}
 .focus-marker{display:inline-block;margin-left:10px;color:var(--accent);font-size:10px;font-weight:800;letter-spacing:.06em}
 .missed-item{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #303036}.missed-item span{color:#aaa;flex-shrink:0;font-size:12px}@media(max-width:480px){.missed-item{flex-direction:column;gap:4px}}
+
+.task.next-glow{position:relative;border-radius:7px;outline:2px solid #7abaff;outline-offset:-2px;box-shadow:inset 0 0 20px #7abaff19,0 0 18px #7abaff48;background:#7abaff0d}.next-glow .focus-marker{color:#9ccfff}.task.focus-glow,.task.next-glow{opacity:1}
