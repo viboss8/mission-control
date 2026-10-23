@@ -9,3 +9,8 @@
 .missed-item{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #303036}.missed-item span{color:#aaa;flex-shrink:0;font-size:12px}@media(max-width:480px){.missed-item{flex-direction:column;gap:4px}}
 
 .task.next-glow{position:relative;border-radius:7px;outline:2px solid #7abaff;outline-offset:-2px;box-shadow:inset 0 0 20px #7abaff19,0 0 18px #7abaff48;background:#7abaff0d}.next-glow .focus-marker{color:#9ccfff}.task.focus-glow,.task.next-glow{opacity:1}
+
+/* Slow border pulse only; no flashing content or siren audio. */
+.task.late-glow{position:relative;border-radius:7px;outline:2px solid #ff6677;outline-offset:-2px;background:#17141b;animation:late-border-pulse 4s ease-in-out infinite;opacity:1}.late-glow .focus-marker{color:#ffadb6}
+@keyframes late-border-pulse{0%,100%{outline-color:#ff6677;box-shadow:inset 0 0 16px #ff667712,0 0 17px #ff667755}50%{outline-color:#70aaff;box-shadow:inset 0 0 16px #70aaff12,0 0 17px #70aaff55}}
+@media(prefers-reduced-motion:reduce){.task.late-glow{animation:none;outline-color:#ff6677;box-shadow:inset 0 0 0 2px #70aaff,0 0 14px #ff667744}}
