@@ -10,7 +10,14 @@
 
 .task.next-glow{position:relative;border-radius:7px;outline:2px solid #7abaff;outline-offset:-2px;box-shadow:inset 0 0 20px #7abaff19,0 0 18px #7abaff48;background:#7abaff0d}.next-glow .focus-marker{color:#9ccfff}.task.focus-glow,.task.next-glow{opacity:1}
 
-/* Slow border pulse only; no flashing content or siren audio. */
-.task.late-glow{position:relative;border-radius:7px;outline:2px solid #ff6677;outline-offset:-2px;background:#17141b;animation:late-border-pulse 1s steps(1,end) infinite;opacity:1}.late-glow .focus-marker{color:#ffadb6}
-@keyframes late-border-pulse{0%,100%{outline-color:#ff6677;box-shadow:inset 0 0 16px #ff667712,0 0 17px #ff667755}50%{outline-color:#70aaff;box-shadow:inset 0 0 16px #70aaff12,0 0 17px #70aaff55}}
-@media(prefers-reduced-motion:reduce){.task.late-glow{animation:none;outline-color:#ff6677;box-shadow:inset 0 0 0 2px #70aaff,0 0 14px #ff667744}}
+/* Two opposing four-LED clusters, restricted to the existing warning rim. */
+@property --siren-red { syntax:'<angle>'; inherits:false; initial-value:0deg; }
+@property --siren-blue { syntax:'<angle>'; inherits:false; initial-value:180deg; }
+.task.late-glow{position:relative;border-radius:7px;outline:1px solid #754658;outline-offset:-1px;background:#17141b;opacity:1;animation:none;box-shadow:none}
+.late-glow .focus-marker{color:#ffadb6}
+.task.late-glow::before,.task.late-glow::after{content:'';position:absolute;inset:0;padding:3px;border-radius:inherit;pointer-events:none;z-index:1;background:conic-gradient(from var(--siren-red),#ff405a 0deg 10deg,transparent 10deg 14deg,#ff405a 14deg 24deg,transparent 24deg 28deg,#ff405a 28deg 38deg,transparent 38deg 42deg,#ff405a 42deg 52deg,transparent 52deg 360deg),conic-gradient(from var(--siren-blue),#499dff 0deg 10deg,transparent 10deg 14deg,#499dff 14deg 24deg,transparent 24deg 28deg,#499dff 28deg 38deg,transparent 38deg 42deg,#499dff 42deg 52deg,transparent 52deg 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:siren-chase 4s linear infinite,siren-burst 2s steps(1,end) infinite}
+.task.late-glow::after{inset:-3px;padding:6px;filter:blur(7px);z-index:0}
+@keyframes siren-chase{from{--siren-red:0deg;--siren-blue:180deg}to{--siren-red:360deg;--siren-blue:-180deg}}
+/* Paired brightness accents, never a full-card flash or blackout. */
+@keyframes siren-burst{0%,24%,50%,74%,100%{opacity:1}12%,36%,62%,86%{opacity:.6}}
+@media(prefers-reduced-motion:reduce){.task.late-glow::before,.task.late-glow::after{animation:none;opacity:1;background:linear-gradient(110deg,#ff6677 0% 49%,#70aaff 51% 100%)}.task.late-glow::after{opacity:.45}}
