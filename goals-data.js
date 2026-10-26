@@ -58,15 +58,15 @@ const DISCOVERY = {
     } }
   },
   handle: {
-    'Home & Cleaning': ['Deep-clean the bathtub','Organize the bedroom closet','Clean and organize the kitchen'],
-    'Personal Admin': ['Handle one delayed errand','Organize important documents','Plan upcoming appointments'],
-    'Money & Bills': ['Review recurring subscriptions','Review monthly spending','Organize upcoming payments'],
-    'Digital Organization': ['Sort photo files','Clean up computer folders','Organize digital resources']
+    'Home & Cleaning': ['Deep-clean the bathtub','Organize the bedroom closet','Clean and organize the car'],
+    'Personal Admin': ['Complete an outstanding errand','Organize important documents','Schedule an important appointment'],
+    'Money & Bills': ['Review monthly expenses','Cancel an unused subscription','Organize upcoming bills'],
+    'Digital Organization': ['Organize photography files','Back up important files','Clean up computer folders']
   },
   life: {
-    'Fun & Adventure': ['Try a new local activity','Plan an enjoyable outing','Explore a new place'],
-    Relationships: ['Plan an intentional date night','Reconnect with a friend','Share a meaningful activity'],
-    'Hobbies & Creativity': ['Take a photography walk','Try a new creative skill','Enjoy a hobby session'],
+    'Fun & Adventure': ['Plan a weekend adventure','Try a new local activity','Visit somewhere new'],
+    Relationships: ['Plan an intentional date night','Arrange quality time with someone important','Reconnect with a friend or family member'],
+    'Hobbies & Creativity': ['Complete a creative photography activity','Try a new photography technique','Practice an appropriate boxing or MMA skill'],
     'Community & Social': ['Attend a local community event','Join a group activity','Make plans with friends']
   }
 };
