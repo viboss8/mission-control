@@ -78,3 +78,13 @@
 .goal-options .goal-quick-controls{margin:4px 0;gap:6px}
 .goal-options .goal-quick-controls .button{min-height:36px;margin-top:0;padding:5px 10px;font-size:12px}
 .goal-options .goal-confirm{text-align:left}
+
+/* Optional weekly focus planner, contained within Goals. */
+.weekly-focus-link{display:block;margin:12px 0 22px}
+.focus-blocks{display:grid;gap:12px;margin:20px 0}
+.focus-block{background:#1b1b22;border:1px solid #45454e;border-radius:10px;padding:16px;min-width:0;overflow-wrap:anywhere}
+.focus-block-choice{display:flex;align-items:flex-start;gap:12px;line-height:1.7;cursor:pointer}
+.focus-block-choice input{width:22px;min-width:22px;height:22px;margin-top:5px;accent-color:#ffd044}
+.focus-block details{margin-top:12px}.focus-block summary{cursor:pointer;font-size:13px;padding:8px 0}
+.focus-locked{border-style:dashed}.focus-locked small{color:#b8b8c4}
+@media(max-width:650px){.focus-block{padding:14px}.focus-block-choice{font-size:14px}.focus-block input:not([type=checkbox]),.focus-block textarea{max-width:100%;box-sizing:border-box}}

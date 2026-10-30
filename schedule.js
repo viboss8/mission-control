@@ -16,5 +16,9 @@ const SCHEDULE = [
 {day:'Saturday',theme:'Creativity & Experiences',color:'#c78aff',tasks:[['Morning–Afternoon','Photography & Exploration','Photoshoot, portfolio work, exploring, or meaningful experiences.'],['2:00–4:00 PM','College Completion','Only when coursework remains incomplete. Otherwise approve a meaningful replacement.'],['5:00–9:00 PM','Social & Recreational Activities','Date night, friends, gaming, or an outing.']]},
 {day:'Sunday',theme:'Weekly Reset & Preparation',color:'#6ed7db',tasks:[['Daytime','Household Readiness','Cleaning → laundry → meal preparation.'],['5:00–7:00 PM','Weekly Preparation','Meals, equipment, and upcoming obligations.'],['7:00–7:30 PM','Weekly Planning','Whiteboard → calendar → three weekly priorities.'],['7:30–9:00 PM','Evening Recovery','Decompress and prepare for Monday.']]}
 ];
+// Keep dated pre-upgrade defaults available for historical weeks.
+SCHEDULE.beforeWeeklyFocus=JSON.parse(JSON.stringify(SCHEDULE));
+SCHEDULE[3].tasks[2]=['7:45–9:00 PM','Forex or Business Development','Choose one unfinished weekly or monthly priority.'];
+SCHEDULE[3].tasks.splice(3,1);
 SCHEDULE.legacy=LEGACY_SCHEDULE;
 if(typeof module!=="undefined")module.exports=SCHEDULE;
