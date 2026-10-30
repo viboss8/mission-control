@@ -67,3 +67,14 @@
 .summary-lane{margin:16px 0}.summary-lane>.summary-goal{display:block}
 .summary-monthly{margin:16px 0}.summary-monthly>span,.summary-monthly>strong{display:block}
 .goal-summary-home .summary-lane>strong{font-size:14px;font-weight:750}
+
+/* Keep occasional goal management tucked away until requested. */
+.goal-options{margin:4px 0 8px;text-align:right}
+.goal-options>summary{display:inline-block;min-height:0;padding:5px 8px;color:#bfc0ca;font-size:12px;font-weight:600;cursor:pointer;border-radius:5px;list-style:none}
+.goal-options>summary::after{content:' ▾'}
+.goal-options[open]>summary::after{content:' ▴'}
+.goal-options>summary::-webkit-details-marker{display:none}
+.goal-options>summary:hover,.goal-options>summary:focus-visible{background:#292930;color:#fff;outline:1px solid #656575}
+.goal-options .goal-quick-controls{margin:4px 0;gap:6px}
+.goal-options .goal-quick-controls .button{min-height:36px;margin-top:0;padding:5px 10px;font-size:12px}
+.goal-options .goal-confirm{text-align:left}
